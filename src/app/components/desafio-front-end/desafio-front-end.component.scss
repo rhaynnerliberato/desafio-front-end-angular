@@ -1,0 +1,82 @@
+mat-card-header{
+  background-color: rgb(17, 199, 111);
+  color: white;
+  font-family: BRSonoma, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  height: 100px;
+  width: 550px;
+  align-items: center;
+  margin: 5% auto;
+  box-shadow: 5px 5px 3px rgba(80, 80, 80, 0.77);
+}
+
+.my-cards{
+  margin: 0 auto;
+  width: 35%;
+  background-size: 0;
+  margin-right: 420px;
+}
+
+#titulo{
+  box-sizing: border-box;
+  color: rgb(18, 36, 24);
+  display: block;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  height: 45px;
+  line-height: 62px;
+  tab-size: 4;
+  margin-left: 130px;
+}
+
+body, html{
+  background-image: url("https://www.picpay.com/_next/static/images/httpspicpaydevmscmsapi.s3.amazonaws.comBannerIza960X724desktopbbb44aa58e84b-960-4c93184d0d82af9d6105d65a8e6484e2.webp");
+  background-size: cover;
+  padding:0;
+  margin:0;
+}
+
+#navbar{
+  background-color: rgb(9, 194, 104);
+  font-family: Montserrat, Arial, Helvetica, sans-serif!important;
+  color: white;
+  height: 75px;
+}
+
+img{
+  height: 70px;
+  width: 140px;
+}
+
+#avatar{
+  height: 70px;
+  width: 70px;
+}
+
+.modal-header {
+  background-color: rgb(35, 134, 98);
+  color: white;
+  font-family: BRSonoma, Arial, Helvetica, sans-serif;
+}
+
+ng-select{
+  background-color: white;
+}
+
+.modal {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align:super;
+    content: " ";
+    height: 100%;
+  }
+}
+.modal-dialog, .cdk-global-overlay-wrapper {
+  margin-left: 450px;
+  top: 0px;
+  padding: 0;
+}

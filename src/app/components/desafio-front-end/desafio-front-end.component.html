@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Desafio Front End</title>
+  </head>
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="https://www.picpay.com/site" target="_blank"><img src="http://whatsrel.com.br/wp-content/uploads/2020/05/picpay.png"></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a style="color: white;" class="nav-link" href="https://www.picpay.com/site" target="_blank">Ir para Site Oficial</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a class="nav-link" href="https://www.linkedin.com/in/rhaynner-liberato/" target="_blank" style="color: white;">Desenvolvido por Rhaynner Liberato</a>
+        <a href="https://github.com/rhaynnerliberato" target="_blank">
+          <img style="border-radius: 100%;" src="https://s.yimg.com/uu/api/res/1.2/Q7jWoQk7S8quoeLIWZujqA--~B/aD02NzU7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/pt/canal_tech_990/0cdfe9c8e38b6c7f9877a0359c6e0356">
+        </a>
+      </form>
+    </div>
+  </nav>
+  <body>
+    <div class="text-center">
+      <h2 id="titulo">Pague um amigo</h2>
+    </div>
+    <div class="my-cards" fxLayout="row" fxLayoutAlign="start start">
+      <div class="row" *ngFor="let usuario of usuarios; index as i; trackBy: trackByFn">
+        <mat-card class="users-card" >
+          <mat-card-header>
+            <div class="row">
+              <div class="col-lg-2" size="100">
+                <img id="avatar" mat-card-avatar src={{usuario?.img}}>
+              </div>
+              <div class="col-lg-8" size="100">
+                <mat-card-title size="100">Nome do Usuario: {{ usuario?.name }}</mat-card-title>
+                <mat-card-subtitle size="100">ID: {{ usuario?.id }} - Username: {{ usuario?.username }}</mat-card-subtitle>
+              </div>
+              <div class="col-lg-2" size="100">
+                <button class="btn-primary" mat-button (click)="openModal(modalPagar, usuario?.name)">Pagar</button>
+              </div>
+            </div>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+    <ng-template class="modal fade" tabindex="-1" role="dialog" #modalPagar let-modal>
+      <div class="modal-dialog" role="document" id="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" >Pagamento para {{usuarioSelecionado}}</h4>
+          </div>
+          <div class="modal-body">
+            <form #formPagamento="ngForm" (ngSubmit)="pagar(formPagamento.value, modalFinal)">
+              <div class="form-group">
+                <div class="mb-3">
+                  <input ngModel
+                    name="valor"
+                    id="valor"
+                    class="form-control"
+                    type="number"
+                    placeholder="R$: 0,00">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="mb-3">
+                  <mat-form-field required="true" appearance="fill" class="form-control" >
+                    <mat-label>Selecione um Cartao</mat-label>
+                    <select matNativeControl [ngModel]="cards" name="cartao" >
+                      <option *ngFor="let card of cards">
+                        {{card.card_number}}
+                      </option>
+                    </select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success form-control text-center" [disabled]="!formPagamento.value">Pagar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template class="modal fade" #modalFinal let-modal>
+      <div class="modal-dialog" id="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" >{{mensagemValidacao.mensagem1}}</h4>
+          </div>
+          <div class="modal-body">
+            <h6 class="modal-body text-center" >{{mensagemValidacao.mensagem2}}</h6>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </body>
+</html>
