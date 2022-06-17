@@ -32,9 +32,10 @@ mat-card-header{
 
 body, html{
   background-image: url("https://www.picpay.com/_next/static/images/httpspicpaydevmscmsapi.s3.amazonaws.comBannerIza960X724desktopbbb44aa58e84b-960-4c93184d0d82af9d6105d65a8e6484e2.webp");
-  background-size: cover;
+  background-size: 100%;
   padding:0;
   margin:0;
+  height: 100%;
 }
 
 #navbar{
