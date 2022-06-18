@@ -18,7 +18,7 @@ export class DesafioFrontEndComponent implements OnInit {
     {
       card_number: '1111111111111111',
       cvv: 789,
-      expiry_date: '01/18',
+      expiry_date: '01/23',
     },
     // invalid card
     {
@@ -27,7 +27,7 @@ export class DesafioFrontEndComponent implements OnInit {
       expiry_date: '01/20',
     },
   ];
-  public cartaoSelecionado: any;
+  public cartaoSelecionado?: string;
   public usuarioSelecionado?: string;
   public formPagamento?: FormGroup;
   public retornoTransacao?: TransactionPayloadResponse;
@@ -54,13 +54,19 @@ export class DesafioFrontEndComponent implements OnInit {
   }
 
   pagar(dadosPagamento: any, modalFinal: any): void {
-    const NUMERO_CARTAO_SELECIONADO = dadosPagamento?.cartao;
+
+    if(dadosPagamento?.cartao == 'Cartao final ************1111'){
+      this.cartaoSelecionado = this.cards[0].card_number;
+    }
+    else{
+      this.cartaoSelecionado = this.cards[1].card_number;
+    }
 
     this.cards.forEach(card =>{
-      if(card.card_number == NUMERO_CARTAO_SELECIONADO){
+      if(card.card_number == this.cartaoSelecionado){
         this.servico.realizarTransacao(card).subscribe(response => {
           this.retornoTransacao = response;
-          if(NUMERO_CARTAO_SELECIONADO == this.cards[1].card_number){
+          if(this.cartaoSelecionado == this.cards[1].card_number){
             this.retornoTransacao.success = false;
           }
           this.validarTransacao(this.retornoTransacao, modalFinal);

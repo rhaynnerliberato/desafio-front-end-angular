@@ -81,3 +81,18 @@ ng-select{
   top: 0px;
   padding: 0;
 }
+
+mat-form-field, #mat-input-0{
+  background-size: 100%;
+  padding:0;
+  margin:0;
+  height: 100%;
+}
+
+option{
+  background-size: 100%;
+  padding:30px;
+  margin: 30px;
+  height: 100%;
+  background-color: white;
+}

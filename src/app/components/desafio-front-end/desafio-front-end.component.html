@@ -57,7 +57,7 @@
             <form #formPagamento="ngForm" (ngSubmit)="pagar(formPagamento.value, modalFinal)">
               <div class="form-group">
                 <div class="mb-3">
-                  <input ngModel
+                  <input onkeypress="return event.charCode >= 48 && event.charCode <= 57" ngModel
                     name="valor"
                     id="valor"
                     class="form-control"
@@ -67,11 +67,11 @@
               </div>
               <div class="form-group">
                 <div class="mb-3">
-                  <mat-form-field required="true" appearance="fill" class="form-control" >
+                  <mat-form-field appearance="fill" class="form-control" >
                     <mat-label>Selecione um Cartao</mat-label>
                     <select matNativeControl [ngModel]="cards" name="cartao" >
-                      <option *ngFor="let card of cards">
-                        {{card.card_number}}
+                      <option required="true" *ngFor="let card of cards; index as i; trackBy: trackByFn">
+                        Cartao final ************{{card.card_number[12]}}{{card.card_number[13]}}{{card.card_number[14]}}{{card.card_number[15]}}
                       </option>
                     </select>
                   </mat-form-field>
