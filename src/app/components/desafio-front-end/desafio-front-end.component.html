@@ -31,17 +31,17 @@
       <div class="row" *ngFor="let usuario of usuarios; index as i; trackBy: trackByFn">
         <mat-card class="users-card" >
           <mat-card-header>
-            <div class="row">
-              <div class="col-lg-2" size="100">
-                <img id="avatar" mat-card-avatar src={{usuario?.img}}>
-              </div>
-              <div class="col-lg-8" size="100">
-                <mat-card-title size="100">Nome do Usuario: {{ usuario?.name }}</mat-card-title>
-                <mat-card-subtitle size="100">ID: {{ usuario?.id }} - Username: {{ usuario?.username }}</mat-card-subtitle>
-              </div>
-              <div class="col-lg-2" size="100">
-                <button class="btn-primary" mat-button (click)="openModal(modalPagar, usuario?.name)">Pagar</button>
-              </div>
+            <div class="row col-12" style="margin-left: -40px;">
+                <div class="col-2" size="100">
+                  <img id="avatar" mat-card-avatar src={{usuario?.img}}>
+                </div>
+                <div class="col-8" size="100">
+                  <mat-card-title size="100">Nome do Usuario: {{ usuario?.name }}</mat-card-title>
+                  <mat-card-subtitle size="100">ID: {{ usuario?.id }} - Username: {{ usuario?.username }}</mat-card-subtitle>
+                </div>
+                <div class="col-2" size="100">
+                  <button class="btn-primary" mat-button (click)="openModal(modalPagar, usuario?.name)">Pagar</button>
+                </div>
             </div>
           </mat-card-header>
         </mat-card>
