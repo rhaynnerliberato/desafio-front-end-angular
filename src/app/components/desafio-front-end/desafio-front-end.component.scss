@@ -1,3 +1,5 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
 mat-card-header{
   background-color: rgb(17, 199, 111);
   color: white;
@@ -45,6 +47,11 @@ body, html{
   height: 75px;
 }
 
+#logo-git-hub{
+  border-radius: 100px;
+  size: 10px;
+}
+
 img{
   height: 70px;
   width: 140px;
@@ -63,6 +70,7 @@ img{
 
 ng-select{
   background-color: white;
+  border-bottom: 30px;
 }
 
 .modal {

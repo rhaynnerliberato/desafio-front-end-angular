@@ -18,7 +18,7 @@
       <form class="form-inline my-2 my-lg-0">
         <a class="nav-link" href="https://www.linkedin.com/in/rhaynner-liberato/" target="_blank" style="color: white;">Desenvolvido por Rhaynner Liberato</a>
         <a href="https://github.com/rhaynnerliberato" target="_blank">
-          <img style="border-radius: 100%;" src="https://s.yimg.com/uu/api/res/1.2/Q7jWoQk7S8quoeLIWZujqA--~B/aD02NzU7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/pt/canal_tech_990/0cdfe9c8e38b6c7f9877a0359c6e0356">
+          <img id="logo-git-hub" src="https://s.yimg.com/uu/api/res/1.2/Q7jWoQk7S8quoeLIWZujqA--~B/aD02NzU7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/pt/canal_tech_990/0cdfe9c8e38b6c7f9877a0359c6e0356">
         </a>
       </form>
     </div>
@@ -67,6 +67,13 @@
               </div>
               <div class="form-group">
                 <div class="mb-3">
+                  <!-- <ng-select [items]="cards"
+                    bindLabel="card_number"
+                    bindValue="cvv"
+                    placeholder="Selecione um Cartao: "
+                    [(ngModel)]="cards"
+                    >
+                  </ng-select> -->
                   <mat-form-field appearance="fill" class="form-control" >
                     <mat-label>Selecione um Cartao</mat-label>
                     <select matNativeControl [ngModel]="cards" name="cartao" >
